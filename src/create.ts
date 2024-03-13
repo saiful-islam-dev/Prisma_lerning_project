@@ -27,18 +27,21 @@ const main = async() =>{
 
     const createPost = await prisma.post.create({
         data: {
-            title: "this is title",
-            content: "this is content of the post",
+            title: "this is title post 6",
+            content: "this is content of the post 6",
             authorId: 1,
             postCategory: {
-                create: {
-                    categoryId: 4
-                    // category: {
-                    //     connect: {
-                    //         id: 1
-                    //     }
-                    // }
-                }
+                create: [
+                    {
+                        categoryId: 1
+                    },
+                    {
+                        categoryId: 3
+                    },
+                    {
+                        categoryId: 4
+                    }
+                ]
             }
         },include: {
             postCategory: true
